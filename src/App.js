@@ -14,6 +14,8 @@ const AppStyle = styled.div`
     min-height: 100px;
     a {
       margin-right: 20px;
+      text-decoration: none;
+      color: black;
     }
   }
 `;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import Story from "./Story";
 import Shipping from "./Shipping";
 import styled from "styled-components";
@@ -10,6 +10,11 @@ const ItemStyle = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
   }
 `;
 
@@ -33,15 +38,19 @@ const Item = ({ itemList, history, match: { params } }) => {
       </div>
       <nav className="item-sub-nav">
         <div>
-          <Link to={`/shop/${item.id}`} activeStyle={{ color: "#72B9C8" }}>
+          <NavLink
+            exact
+            to={`/shop/${item.id}`}
+            activeStyle={{ color: "#72B9C8" }}
+          >
             the story
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             activeStyle={{ color: "#72B9C8" }}
             to={`/shop/${item.id}/shipping`}
           >
             shipping
-          </Link>
+          </NavLink>
         </div>
         <Route
           exact
