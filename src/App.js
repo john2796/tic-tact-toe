@@ -26,7 +26,7 @@ class App extends Component {
       item: data
     };
   }
-
+  //c
   render() {
     return (
       <Router>
