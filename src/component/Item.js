@@ -23,10 +23,10 @@ const Item = ({ itemList, history, match: { params } }) => {
   if (!itemList) return <p>item not found</p>;
   return (
     <ItemStyle className="item-wrapper">
-      <h1 onClick={() => history.goBack()} style={{ cursor: "pointer" }}>
+      <button onClick={() => history.goBack()} style={{ cursor: "pointer" }}>
         {" "}
         go Back
-      </h1>
+      </button>
       <div className="item-header">
         <div className="image-wrapper">
           <img src={item.imageUrl} alt={item.name} />
