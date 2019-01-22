@@ -1,26 +1,56 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import Home from "./component/Home";
+import Shop from "./component/Shop";
+import styled from "styled-components";
+import Item from "./component/Item";
+import data from "./data";
+
+const AppStyle = styled.div`
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    a {
+      margin-right: 20px;
+    }
+  }
+`;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      item: data
+    };
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <AppStyle>
+          <nav>
+            <NavLink exact activeStyle={{ color: "#72B9C8" }} to="/">
+              Home
+            </NavLink>
+            <NavLink activeStyle={{ color: "#72B9C8" }} to="/shop">
+              Shop
+            </NavLink>
+          </nav>
+          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/shop"
+            render={props => <Shop {...props} itemList={this.state.item} />}
+          />
+          <Route
+            path="/shop/:id"
+            render={props => <Item {...props} itemList={this.state.item} />}
+          />
+        </AppStyle>
+      </Router>
     );
   }
 }
