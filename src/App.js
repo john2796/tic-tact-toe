@@ -1,58 +1,24 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import Home from "./component/Home";
-import Shop from "./component/Shop";
-import styled from "styled-components";
-import Item from "./component/Item";
-import data from "./data";
-
-const AppStyle = styled.div`
-  nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100px;
-    a {
-      margin-right: 20px;
-      text-decoration: none;
-      color: black;
-    }
-  }
-`;
+import React, { Component, Fragment } from 'react';
+import './App.css';
+import Home from './components/Home/Home';
+import Projects from './components/Projects/Projects';
+import About from './components/About/About';
+import Contact from './components/Contact/Contact';
+import NavBar from './components/Nav/NavBar';
+import Sticky from 'react-sticky-el';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      item: data
-    };
-  }
-
   render() {
     return (
-      <Router>
-        <AppStyle>
-          <nav>
-            <NavLink exact activeStyle={{ color: "#72B9C8" }} to="/">
-              Home
-            </NavLink>
-            <NavLink activeStyle={{ color: "#72B9C8" }} to="/shop">
-              Shop
-            </NavLink>
-          </nav>
-          <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path="/shop"
-            render={props => <Shop {...props} itemList={this.state.item} />}
-          />
-          <Route
-            path="/shop/:id"
-            render={props => <Item {...props} itemList={this.state.item} />}
-          />
-        </AppStyle>
-      </Router>
+      <Fragment>
+        <Home />
+        <Sticky className="Sticky">
+          <NavBar />
+        </Sticky>
+        <About />
+        <Projects />
+        <Contact />
+      </Fragment>
     );
   }
 }

@@ -1,12 +1,18 @@
 {
-  "name": "tic-tac-toe",
+  "name": "jbmiranda",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.2.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-router-dom": "^4.3.1",
+    "react-particles-js": "^2.4.2",
+    "react-pdfobject": "^1.1.0",
+    "react-responsive": "^6.1.1",
     "react-scripts": "2.1.3",
+    "react-scroll": "^1.7.10",
+    "react-sticky-el": "^1.0.20",
+    "reactstrap": "^7.1.0",
     "styled-components": "^4.1.3"
   },
   "scripts": {
