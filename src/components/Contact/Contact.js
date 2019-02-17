@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Form, FormGroup, Input } from "reactstrap";
+import { Form, FormGroup, Input, Spinner } from "reactstrap";
 import { Element } from "react-scroll";
+import axios from "axios";
 
 import {
   ContactContainer,
@@ -13,58 +14,32 @@ import {
   Astyle,
   CopyrightText
 } from "./ContactStyles";
-
+import Alert from "react-s-alert";
 import Button from "../Button/Button";
-
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-};
-
 class Contact extends Component {
-  state = { name: "", email: "", message: "" };
+  state = { name: "", email: "", message: "", loading: false, errors: null };
 
   handleSubmit = e => {
     e.preventDefault();
-
+    this.setState({ loading: true });
     const { name, email, message } = this.state;
-    const valid =
-      name.length > 0 &&
-      email.length > 0 &&
-      email.includes("@") &&
-      email.includes(".") &&
-      message.length > 0;
-
-    if (valid) {
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...this.state })
+    axios
+      .post("https://jbmiranda-server-01.herokuapp.com/api/contact", {
+        name,
+        email,
+        message
       })
-        .then(() =>
-          alert(
-            `Hey! Thanks for contacting me. I'll get back to you soon as I can.`
-          )
+      .then(() => {
+        this.setState({ loading: false });
+      })
+      .then(() =>
+        Alert.success(
+          `Hey! Thanks for contacting me. I'll get back to you soon as I can.`
         )
-        .catch(error =>
-          alert(
-            `Oops! Something went wrong. Contact me at ${
-              process.env.REACT_APP_EMAIL
-            }.`
-          )
-        );
-
-      this.setState({ name: "", email: "", message: "" });
-    } else if (name.length <= 0) {
-      alert("Please enter your name.");
-    } else if (email.length <= 0) {
-      alert("Please enter your email address.");
-    } else if (!email.includes("@") || !email.includes(".")) {
-      alert("Please enter a valid email address.");
-    } else if (message.length <= 0) {
-      alert("Please enter your message.");
-    }
+      )
+      .catch(errors => {
+        this.setState({ errors, loading: false });
+      });
   };
 
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -92,6 +67,13 @@ class Contact extends Component {
               Contact
               <div className="header-bar" />
             </ContactHeader>
+            {this.state.loading && (
+              <Spinner
+                md="auto"
+                style={{ margin: "0 auto", display: "block" }}
+                color="success"
+              />
+            )}
             <ContactSubHeader>Want to work together?</ContactSubHeader>
             <ContactForm>
               <Form onSubmit={this.handleSubmit}>
@@ -138,6 +120,7 @@ class Contact extends Component {
                 borderColor="#B3DEC1"
                 width="180px"
                 fontSize="1.2rem"
+                type="submit"
                 onClick={this.handleSubmit}
               />
             </ButtonWrapper>
@@ -154,7 +137,7 @@ class Contact extends Component {
                 <i className="fab fa-medium" />
               </Astyle>
               <Astyle
-                href={`mailto:${process.env.REACT_APP_EMAIL}`}
+                href="mailto:jbmiranda22796@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -134,6 +134,7 @@ export const BioText = styled.div`
   @media (max-width: 600px) {
     font-size: 1.1rem;
     text-align: center;
+    margin: 20px 0;
   }
 `;
 

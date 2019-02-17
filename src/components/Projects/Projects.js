@@ -22,7 +22,7 @@ import img2 from "../../assets/02.jpg";
 import img3 from "../../assets/03.jpg";
 import img4 from "../../assets/04.jpg";
 const img5 =
-  "https://cdn.pixabay.com/photo/2016/11/30/15/00/lighthouse-1872998__480.jpg";
+  "https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-450w-1037719192.jpg";
 
 const thumbSize = { width: "370px", height: "217px" };
 const fullSize = { width: "100%" };
@@ -31,9 +31,9 @@ class Projects extends Component {
   state = {
     modalAnchored: false,
     modalCrytpoGym: false,
-    modalProfJones: false,
+    modalProfJb: false,
     modalBCAD: false,
-    toggler: false
+    modalTwo: false
   };
 
   toggleAnchored = () => {
@@ -48,9 +48,9 @@ class Projects extends Component {
     });
   };
 
-  toggleProfJones = () => {
+  toggleProfJb = () => {
     this.setState({
-      modalProfJones: !this.state.modalProfJones
+      modalProfJb: !this.state.modalProfJb
     });
   };
 
@@ -59,9 +59,10 @@ class Projects extends Component {
       modalBCAD: !this.state.modalBCAD
     });
   };
-
-  toggler = card => {
-    this.setState({ toggler: !card });
+  toggleTwo = () => {
+    this.setState({
+      modalTwo: !this.state.modalTwo
+    });
   };
 
   render() {
@@ -77,7 +78,7 @@ class Projects extends Component {
               <Thumbnail
                 src={img3}
                 style={thumbSize}
-                onClick={this.toggleProfJones}
+                onClick={this.toggleProfJb}
                 alt="project card"
               />
               <Thumbnail
@@ -101,13 +102,13 @@ class Projects extends Component {
               <Thumbnail
                 src={img5}
                 style={thumbSize}
-                onClick={this.toggler}
+                onClick={this.toggleTwo}
                 alt="project card"
               />
             </ThumbnailContainer>
             <ButtonWrapper>
               <a
-                href="https://jeremyjones.hackhivebeta.com/"
+                href="https://www.johnbenedictmiranda.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ textDecoration: "none" }}
@@ -131,7 +132,8 @@ class Projects extends Component {
               <ModalTitle>Instagram</ModalTitle>
               <ModalSubTitle>A Instagram clone</ModalSubTitle>
               <ModalDescription>
-                built with React, Redux, Node.js, Express, and Mlab.
+                built with React, Redux, Node.js, Express, Mongoose, Bycrpyt ,
+                Passport , Passport-jwt.
               </ModalDescription>
             </ModalTextWrapper>
           </ModalHeader>
@@ -143,7 +145,7 @@ class Projects extends Component {
               <i className="fas fa-globe fa-2x" />
             </Astyle>{" "}
             <Astyle
-              href="https://github.com/john2796/react-insta-client"
+              href="https://github.com/john2796/React-Insta-Clone-1"
               target="_blank"
             >
               <i className="fab fa-github fa-2x" />
@@ -162,18 +164,16 @@ class Projects extends Component {
             </a>
           </ModalBody>
           <ModalHeader style={{ paddingTop: "0" }}>
-            <ModalHeader style={{ paddingTop: "0" }}>
-              <ModalTextWrapper>
-                <ModalTitle>Use My Tool</ModalTitle>
-                <ModalSubTitle />
-                <ModalDescription>
-                  It doesn't make sense to purchase many items that are costly.
-                  Instead, you can rent such items from reliable people and
-                  businesses in your local community using the Use My Tool app.
-                  Built with React Bootstrap with Material Design && MERN
-                </ModalDescription>
-              </ModalTextWrapper>
-            </ModalHeader>
+            <ModalTextWrapper>
+              <ModalTitle>Use My Tool</ModalTitle>
+              <ModalSubTitle />
+              <ModalDescription>
+                It doesn't make sense to purchase many items that are costly.
+                Instead, you can rent such items from reliable people and
+                businesses in your local community using the Use My Tool app.
+                Built with React Bootstrap with Material Design && MERN
+              </ModalDescription>
+            </ModalTextWrapper>
           </ModalHeader>
           <ModalFooter toggle={this.toggleCryptoGym}>
             <Astyle
@@ -197,7 +197,7 @@ class Projects extends Component {
           </ModalFooter>
         </Modal>
         {/* Card modal*/}
-        <Modal isOpen={this.state.modalProfJones} toggle={this.toggleProfJones}>
+        <Modal isOpen={this.state.modalProfJb} toggle={this.toggleProfJb}>
           <ModalBody>
             <a
               href="https://miranda-restaurant-3wd9nqkmp.now.sh/"
@@ -221,7 +221,7 @@ class Projects extends Component {
               </ModalDescription>
             </ModalTextWrapper>
           </ModalHeader>
-          <ModalFooter toggle={this.toggleProfJones}>
+          <ModalFooter toggle={this.toggleProfJb}>
             <Astyle
               href="https://miranda-restaurant-3wd9nqkmp.now.sh/"
               target="_blank"
@@ -244,11 +244,7 @@ class Projects extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FullSize
-                src={img4}
-                style={fullSize}
-                alt="Blockchain Artifact Database"
-              />
+              <FullSize src={img4} style={fullSize} alt="NASA" />
             </a>
           </ModalBody>
           <ModalHeader style={{ paddingTop: "0" }}>
@@ -268,6 +264,46 @@ class Projects extends Component {
               target="_blank"
             >
               <i className="fab fa-github fa-2x" />
+            </Astyle>
+          </ModalFooter>
+        </Modal>
+
+        {/* Card modal*/}
+        <Modal isOpen={this.state.modalTwo} toggle={this.toggleTwo}>
+          <ModalBody>
+            <a
+              href="https://mytools2019-nc83oebj7.now.sh/register"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FullSize src={img5} style={fullSize} alt="Use My Tool" />
+            </a>
+          </ModalBody>
+          <ModalHeader style={{ paddingTop: "0" }}>
+            <ModalTextWrapper>
+              <ModalTitle>Next Project</ModalTitle>
+              <ModalSubTitle />
+              <ModalDescription>Next Project</ModalDescription>
+            </ModalTextWrapper>
+          </ModalHeader>
+          <ModalFooter toggle={this.toggleTwo}>
+            <Astyle
+              href="https://mytools2019-nc83oebj7.now.sh/register"
+              target="_blank"
+            >
+              <i className="fas fa-globe fa-2x" />
+            </Astyle>{" "}
+            <Astyle
+              href="https://github.com/use-my-tools/Front-End"
+              target="_blank"
+            >
+              <i className="fab fa-github fa-2x" />
+            </Astyle>
+            <Astyle
+              href="https://www.youtube.com/watch?v=7SomB_hSfS0&feature=youtu.be"
+              target="_blank"
+            >
+              <i className="fab fa-youtube fa-2x" />
             </Astyle>
           </ModalFooter>
         </Modal>
