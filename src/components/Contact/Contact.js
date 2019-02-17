@@ -55,7 +55,6 @@ class Contact extends Component {
 
   render() {
     const { name, email, message, errors } = this.state;
-    console.log("errors", errors);
 
     return (
       <Element name="Contact">
