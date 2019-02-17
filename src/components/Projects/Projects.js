@@ -4,7 +4,6 @@ import { Element } from "react-scroll";
 
 import {
   ProjectContainer,
-  ProjectHeader,
   ProjectSubHeader,
   ThumbnailContainer,
   ContentWrapper,
@@ -62,17 +61,7 @@ class Projects extends Component {
     });
   };
 
-  toggleReactMovies = () => {
-    this.setState({
-      modalReactMovies: !this.state.modalReactMovies
-    });
-  };
-
-  toggleWalletWatcher = () => {
-    this.setState({
-      modalWalletWatcher: !this.state.modalWalletWatcher
-    });
-  };
+  toggler = card => () => {};
 
   render() {
     return (
@@ -107,18 +96,6 @@ class Projects extends Component {
                 style={thumbSize}
                 onClick={this.toggleBCAD}
                 alt="BC/AD"
-              />
-              <Thumbnail
-                src={reactMovies}
-                style={thumbSize}
-                onClick={this.toggleReactMovies}
-                alt="Need to change later"
-              />
-              <Thumbnail
-                src={walletWatcher}
-                style={thumbSize}
-                onClick={this.toggleWalletWatcher}
-                alt="need to change later"
               />
             </ThumbnailContainer>
             <ButtonWrapper>
@@ -288,92 +265,6 @@ class Projects extends Component {
               target="_blank"
             >
               <i className="fab fa-github fa-2x" />
-            </Astyle>
-          </ModalFooter>
-        </Modal>
-        {/* Modal React Movies */}
-        <Modal
-          isOpen={this.state.modalReactMovies}
-          toggle={this.toggleReactMovies}
-        >
-          <ModalBody>
-            <a href="/" target="_blank" rel="noopener noreferrer">
-              <FullSize src={reactMovies} style={fullSize} alt="React Movies" />
-            </a>
-          </ModalBody>
-          <ModalHeader style={{ paddingTop: "0" }}>
-            <ModalTextWrapper>
-              <ModalTitle>React Movies</ModalTitle>
-              <ModalSubTitle>
-                An app that displays details & trailers of films
-              </ModalSubTitle>
-              <ModalDescription>
-                React Movies is a UI-focused app that allows users to search for
-                in real-time any film ever published to the Movie DB with
-                blazing fast rendering. A user can click on the movie card,
-                watch the trailer and get more details. This app was built with
-                React with the Movie Database API integration.
-              </ModalDescription>
-            </ModalTextWrapper>
-          </ModalHeader>
-          <ModalFooter toggle={this.toggleReactMovies}>
-            <Astyle href="/" target="_blank">
-              <i className="fas fa-globe fa-2x" />
-            </Astyle>{" "}
-            <Astyle href="/" target="_blank">
-              <i className="fab fa-github fa-2x" />
-            </Astyle>
-          </ModalFooter>
-        </Modal>
-
-        {/* Modal WalletWatcher */}
-        <Modal
-          isOpen={this.state.modalWalletWatcher}
-          toggle={this.toggleWalletWatcher}
-        >
-          <ModalBody>
-            <a
-              href="https://walletwatcher.netlify.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FullSize
-                src={walletWatcher}
-                style={fullSize}
-                alt="React Movies"
-              />
-            </a>
-          </ModalBody>
-          <ModalHeader style={{ paddingTop: "0" }}>
-            <ModalTextWrapper>
-              <ModalTitle>WalletWatcher</ModalTitle>
-              <ModalSubTitle>
-                An app that monitors Ethereum addresses
-              </ModalSubTitle>
-              <ModalDescription>
-                WalletWatcher was a Lambda School Hackathon 2018 project that
-                was awarded a third place prize and "most likely to become a
-                startup." It allows users to monitor any Ethereum-based address
-                and receive SMS notifications. It was built with React, Express,
-                Node.js, and MongoDB with Twilio and Etherscan API integration.
-              </ModalDescription>
-            </ModalTextWrapper>
-          </ModalHeader>
-          <ModalFooter toggle={this.toggleWalletWatcher}>
-            <Astyle href="https://walletwatcher.netlify.com" target="_blank">
-              <i className="fas fa-globe fa-2x" />
-            </Astyle>{" "}
-            <Astyle
-              href="https://github.com/wallet-watcher/wallet-watcher"
-              target="_blank"
-            >
-              <i className="fab fa-github fa-2x" />
-            </Astyle>
-            <Astyle
-              href="https://www.youtube.com/watch?v=DmIB3gslWdg"
-              target="_blank"
-            >
-              <i className="fab fa-youtube fa-2x" />
             </Astyle>
           </ModalFooter>
         </Modal>

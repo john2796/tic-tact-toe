@@ -18,13 +18,13 @@ export const AboutHeader = styled.div`
   font-weight: 600;
   color: #131928;
   margin-bottom: 70px;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   @media (max-width: 900px) {
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 50px;
   }
   @media (max-width: 600px) {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 0px;
   }
   .header-bar {
@@ -52,8 +52,12 @@ export const IconTextWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 10px 25px;
+
   @media (max-width: 900px) {
     max-width: 290px;
+  }
+  @media (max-width: 600px) {
+    margin-bottom: 20px;
   }
 `;
 
