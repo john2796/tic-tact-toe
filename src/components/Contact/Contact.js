@@ -17,7 +17,13 @@ import {
 import Alert from "react-s-alert";
 import Button from "../Button/Button";
 class Contact extends Component {
-  state = { name: "", email: "", message: "", loading: false, errors: null };
+  state = { name: "", email: "", message: "", loading: false, errors: {} };
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -32,20 +38,24 @@ class Contact extends Component {
       .then(() => {
         this.setState({ loading: false });
       })
-      .then(() =>
+      .then(mail => {
+        console.log(mail);
         Alert.success(
           `Hey! Thanks for contacting me. I'll get back to you soon as I can.`
-        )
-      )
-      .catch(errors => {
-        this.setState({ errors, loading: false });
+        );
+      })
+      .catch(err => {
+        this.setState({ errors: err.response.data, loading: false });
       });
+    this.setState({ errors: {}, name: "", email: "", message: "" });
   };
 
-  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+  handleChange = e =>
+    this.setState({ [e.target.name]: e.target.value, errors: {} });
 
   render() {
-    const { name, email, message } = this.state;
+    const { name, email, message, errors } = this.state;
+    console.log("errors", errors);
 
     return (
       <Element name="Contact">
@@ -147,6 +157,11 @@ class Contact extends Component {
             <CopyrightText>John Benedict Miranda ©2019</CopyrightText>
           </ContentWrapper>
         </ContactContainer>
+        <div hidden>
+          {errors.message && Alert.error(`${errors.message}`)}
+          {errors.email && Alert.error(errors.email)}
+          {errors.name && Alert.error(errors.name)}
+        </div>
       </Element>
     );
   }
