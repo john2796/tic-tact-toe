@@ -17,12 +17,12 @@ import {
   ButtonWrapper,
   ModalFooter
 } from "./ProjectStyles";
-import anchored from "../../assets/01.jpg";
-import cryptoGym from "../../assets/02.jpg";
-import profJones from "../../assets/03.jpg";
-import bcad from "../../assets/04.jpg";
-import reactMovies from "../../assets/05.jpg";
-import walletWatcher from "../../assets/06.jpg";
+import img1 from "../../assets/01.jpg";
+import img2 from "../../assets/02.jpg";
+import img3 from "../../assets/03.jpg";
+import img4 from "../../assets/04.jpg";
+const img5 =
+  "https://cdn.pixabay.com/photo/2016/11/30/15/00/lighthouse-1872998__480.jpg";
 
 const thumbSize = { width: "370px", height: "217px" };
 const fullSize = { width: "100%" };
@@ -33,8 +33,7 @@ class Projects extends Component {
     modalCrytpoGym: false,
     modalProfJones: false,
     modalBCAD: false,
-    modalReactMovies: false,
-    modalWalletWatcher: false
+    toggler: false
   };
 
   toggleAnchored = () => {
@@ -61,7 +60,9 @@ class Projects extends Component {
     });
   };
 
-  toggler = card => () => {};
+  toggler = card => {
+    this.setState({ toggler: !card });
+  };
 
   render() {
     return (
@@ -74,28 +75,34 @@ class Projects extends Component {
             </ProjectSubHeader>
             <ThumbnailContainer>
               <Thumbnail
-                src={anchored}
-                style={thumbSize}
-                onClick={this.toggleAnchored}
-                alt="Anchored"
-              />
-              <Thumbnail
-                src={cryptoGym}
-                style={thumbSize}
-                onClick={this.toggleCryptoGym}
-                alt="CryptoGym"
-              />
-              <Thumbnail
-                src={profJones}
+                src={img3}
                 style={thumbSize}
                 onClick={this.toggleProfJones}
-                alt="Professor Jones Music"
+                alt="project card"
               />
               <Thumbnail
-                src={bcad}
+                src={img1}
+                style={thumbSize}
+                onClick={this.toggleAnchored}
+                alt="project card"
+              />
+              <Thumbnail
+                src={img2}
+                style={thumbSize}
+                onClick={this.toggleCryptoGym}
+                alt="project card"
+              />
+              <Thumbnail
+                src={img4}
                 style={thumbSize}
                 onClick={this.toggleBCAD}
-                alt="BC/AD"
+                alt="project card"
+              />
+              <Thumbnail
+                src={img5}
+                style={thumbSize}
+                onClick={this.toggler}
+                alt="project card"
               />
             </ThumbnailContainer>
             <ButtonWrapper>
@@ -108,8 +115,7 @@ class Projects extends Component {
             </ButtonWrapper>
           </ContentWrapper>
         </ProjectContainer>
-
-        {/* Modal Anchored*/}
+        {/* Card modal*/}
         <Modal isOpen={this.state.modalAnchored} toggle={this.toggleAnchored}>
           <ModalBody>
             <a
@@ -117,7 +123,7 @@ class Projects extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FullSize src={anchored} style={fullSize} alt="Anchored" />
+              <FullSize src={img1} style={fullSize} alt="A Instagram clone" />
             </a>
           </ModalBody>
           <ModalHeader style={{ paddingTop: "0" }}>
@@ -144,8 +150,7 @@ class Projects extends Component {
             </Astyle>
           </ModalFooter>
         </Modal>
-
-        {/* Modal CryptoGym */}
+        {/* Card modal*/}
         <Modal isOpen={this.state.modalCrytpoGym} toggle={this.toggleCryptoGym}>
           <ModalBody>
             <a
@@ -153,7 +158,7 @@ class Projects extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FullSize src={cryptoGym} style={fullSize} alt="Crypto Gym" />
+              <FullSize src={img2} style={fullSize} alt="Use My Tool" />
             </a>
           </ModalBody>
           <ModalHeader style={{ paddingTop: "0" }}>
@@ -191,8 +196,7 @@ class Projects extends Component {
             </Astyle>
           </ModalFooter>
         </Modal>
-
-        {/* Modal Professor Jones Music */}
+        {/* Card modal*/}
         <Modal isOpen={this.state.modalProfJones} toggle={this.toggleProfJones}>
           <ModalBody>
             <a
@@ -201,9 +205,9 @@ class Projects extends Component {
               rel="noopener noreferrer"
             >
               <FullSize
-                src={profJones}
+                src={img3}
                 style={fullSize}
-                alt="Professor Jones Music"
+                alt="The Soul Food & Bistro"
               />
             </a>
           </ModalBody>
@@ -232,8 +236,7 @@ class Projects extends Component {
             </Astyle>
           </ModalFooter>
         </Modal>
-
-        {/* Modal BCAD */}
+        {/* Card modal*/}
         <Modal isOpen={this.state.modalBCAD} toggle={this.toggleBCAD}>
           <ModalBody>
             <a
@@ -242,7 +245,7 @@ class Projects extends Component {
               rel="noopener noreferrer"
             >
               <FullSize
-                src={bcad}
+                src={img4}
                 style={fullSize}
                 alt="Blockchain Artifact Database"
               />
