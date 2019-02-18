@@ -134,11 +134,19 @@ class Contact extends Component {
               />
             </ButtonWrapper>
             <SocialWrapper>
-              <Astyle href="#" target="_blank" rel="noopener noreferrer">
+              <Astyle
+                href="https://github.com/john2796"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-github" />
               </Astyle>
 
-              <Astyle href="#" target="_blank" rel="noopener noreferrer">
+              <Astyle
+                href="https://codepen.io/dashboard/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-codepen" />
               </Astyle>
               <Astyle
@@ -148,7 +156,11 @@ class Contact extends Component {
               >
                 <i className="far fa-envelope" />
               </Astyle>
-              <Astyle href="#" target="_blank" rel="noopener noreferrer">
+              <Astyle
+                href="https://www.linkedin.com/in/john-benedict-miranda-7b2357180/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i className="fab fa-linkedin-in" />
               </Astyle>
             </SocialWrapper>
