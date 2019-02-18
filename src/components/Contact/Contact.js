@@ -135,22 +135,21 @@ class Contact extends Component {
             </ButtonWrapper>
             <SocialWrapper>
               <Astyle href="#" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin" />
-              </Astyle>
-
-              <Astyle href="#" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-github" />
               </Astyle>
 
               <Astyle href="#" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-medium" />
+                <i className="fab fa-codepen" />
               </Astyle>
               <Astyle
                 href="mailto:jbmiranda22796@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="fas fa-envelope" />
+                <i className="far fa-envelope" />
+              </Astyle>
+              <Astyle href="#" target="_blank" rel="noopener noreferrer">
+                <i className="fab fa-linkedin-in" />
               </Astyle>
             </SocialWrapper>
             <CopyrightText>John Benedict Miranda ©2019</CopyrightText>
