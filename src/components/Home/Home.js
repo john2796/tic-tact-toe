@@ -28,7 +28,7 @@ class Home extends Component {
               <NameText>
                 Hello, I'm
                 <span> John Benedict Miranda.</span>
-                <br /> I'm a software engineer
+                <br /> I'm a full stack web developer
               </NameText>
             </TextContainer>
             <NavButton
