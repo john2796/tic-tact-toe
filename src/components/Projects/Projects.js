@@ -21,6 +21,7 @@ import img1 from "../../assets/01.jpg";
 import img2 from "../../assets/02.jpg";
 import img3 from "../../assets/03.jpg";
 import img4 from "../../assets/04.jpg";
+import img7 from "../../assets/07.jpg";
 const img5 =
   "https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-450w-1037719192.jpg";
 
@@ -33,7 +34,8 @@ class Projects extends Component {
     modalCrytpoGym: false,
     modalProfJb: false,
     modalBCAD: false,
-    modalTwo: false
+    modalTwo: false,
+    modalRealEstate: false
   };
 
   toggleAnchored = () => {
@@ -45,6 +47,11 @@ class Projects extends Component {
   toggleCryptoGym = () => {
     this.setState({
       modalCrytpoGym: !this.state.modalCrytpoGym
+    });
+  };
+  toggleRealEstate = () => {
+    this.setState({
+      modalRealEstate: !this.state.modalRealEstate
     });
   };
 
@@ -75,6 +82,12 @@ class Projects extends Component {
               <div className="header-bar" />
             </ProjectSubHeader>
             <ThumbnailContainer>
+              <Thumbnail
+                src={img7}
+                style={thumbSize}
+                onClick={this.toggleRealEstate}
+                alt="project card"
+              />
               <Thumbnail
                 src={img3}
                 style={thumbSize}
@@ -304,6 +317,47 @@ class Projects extends Component {
               target="_blank"
             >
               <i className="fab fa-youtube fa-2x" />
+            </Astyle>
+          </ModalFooter>
+        </Modal>
+
+        {/* Card modal Real Estate*/}
+        <Modal
+          isOpen={this.state.modalRealEstate}
+          toggle={this.toggleRealEstate}
+        >
+          <ModalBody>
+            <a
+              href="https://miranda-realestate.netlify.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FullSize src={img7} style={fullSize} alt="miranda-realestate" />
+            </a>
+          </ModalBody>
+          <ModalHeader style={{ paddingTop: "0" }}>
+            <ModalTextWrapper>
+              <ModalTitle>Los Angeles Experts</ModalTitle>
+              <ModalSubTitle />
+              <ModalDescription>
+                Built with: React.js , google-map-react, node-sass, reacstrap ,
+                bootstrap, redux, redux-thunk, styled-components,
+                react-router-dom
+              </ModalDescription>
+            </ModalTextWrapper>
+          </ModalHeader>
+          <ModalFooter toggle={this.toggleRealEstate}>
+            <Astyle
+              href="https://miranda-realestate.netlify.com/"
+              target="_blank"
+            >
+              <i className="fas fa-globe fa-2x" />
+            </Astyle>{" "}
+            <Astyle
+              href="https://github.com/john2796/portfolio-003-real-estate"
+              target="_blank"
+            >
+              <i className="fab fa-github fa-2x" />
             </Astyle>
           </ModalFooter>
         </Modal>
