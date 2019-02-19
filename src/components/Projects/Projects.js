@@ -133,7 +133,7 @@ class Projects extends Component {
         <Modal isOpen={this.state.modalAnchored} toggle={this.toggleAnchored}>
           <ModalBody>
             <a
-              href="https://instagram-clone-lilsgxfc1.now.sh/"
+              href="https://miranda-insta-clone.netlify.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -152,7 +152,7 @@ class Projects extends Component {
           </ModalHeader>
           <ModalFooter toggle={this.toggleAnchored}>
             <Astyle
-              href="https://instagram-clone-lilsgxfc1.now.sh/"
+              href="https://miranda-insta-clone.netlify.com/"
               target="_blank"
             >
               <i className="fas fa-globe fa-2x" />
