@@ -19,7 +19,7 @@ class App extends Component {
         <About />
         <Projects />
         <Contact />
-        {/* alert message */}
+
         <Alert
           stack={{ limit: 3, spacing: 50 }}
           position="top-right"
